@@ -110,8 +110,8 @@ def evaluate(context: ModelContext, **kwargs):
         model_type='Classification',
         accumulate=target_name,
         id_column=entity_key,
-        output_prob=True,
-        output_responses=['0', '1'],
+        #output_prob=True,
+        #output_responses=['0', '1'],
         object_order_column=['task_index', 'tree_num',
                              'iter', 'class_num', 'tree_order']
     )
