@@ -67,11 +67,12 @@ def train(context: ModelContext, **kwargs):
     )
 
     scaler.output.to_sql(f"scaler_${context.model_version}", if_exists="replace")
-    print("Saved scaler - updated")
+    print("Saved scaler - updated code")
 
     # Dataset creation.
+    # LightGBM_Classifier = td_lightgbm.Dataset(X_train, y_train, silent = True, free_raw_data=False)
     LightGBM_Classifier = td_lightgbm.Dataset(X_train, y_train, free_raw_data=False)
-
+    
     print("Starting training using teradata osml...")
 
     model = td_lightgbm.train(params={}, train_set = LightGBM_Classifier, num_boost_round=30)
